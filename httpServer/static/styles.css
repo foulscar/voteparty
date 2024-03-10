@@ -1,0 +1,117 @@
+/* Imports */
+@import url('https://fonts.googleapis.com/css2?family=Public+Sans:wght@900&display=swap');
+
+/* Main Styling */
+
+:root {
+  /* Colors */
+  --clr-lightgrey: #bcbbbb;
+  /* Sizes */
+  --size-bkg: 300px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  min-height: 100vh;
+  font-family: Mabry pro, sans-serif;
+  display: flex;
+  flex-direction: column;
+  background-image: url('../img/bkg.png');
+  animation: movingBackground 30s linear infinite;
+}
+
+@keyframes movingBackground {
+  0% {
+    background-position: 0 0;
+  }
+  50% {
+    background-position: var(--size-bkg) var(--size-bkg);
+  }
+  100% {
+    background-position: 0 0;
+  }
+}
+
+header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 1vw;
+  margin-bottom: 2vw;
+  padding: 0 2vw;
+}
+
+#header-profile-stats {
+  display: flex;
+  flex-direction: row;
+  background-color: var(--clr-lightgrey);
+} #header-profile-stats h2 + h2 {
+  margin-left: 0.5vw;
+}
+
+#header-profile-stats, #header-title {
+  max-width: fit-content;
+  border: 0.25vw solid black;
+  box-shadow:
+    black -0.2rem 0.2rem;
+  padding: 0.25vw;
+}
+
+#header-title {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+#main-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#content-nav-wrapper {
+  max-width: fit-content;
+  background-color: rgba(255, 255, 255, 0.2);
+  border: 0.25vw solid black;
+  box-shadow:
+    black -0.2rem 0.2rem;
+  padding: 0.5vw;
+  margin-bottom: 1vw;
+} #content-nav-wrapper button {
+  font-size: 1vw;
+  background-color: var(--clr-lightgrey);
+  padding: 0.1vw;
+  border: 0.25vw solid black;
+  box-shadow:
+    black -0.2rem 0.2rem;
+}
+
+#content-switcher {
+  max-width: fit-content;
+  border: 0.25vw dashed black;
+  padding: 0.5vw;
+}
+
+#card-groups-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.card-group {
+  display: flex;
+}
+
+.card {
+  width: 10vw;
+  border: 0.25vw solid black;
+  border-radius: 1vw;
+  box-shadow:
+    black -0.2rem 0.2rem
+}
+
+.card + .card {
+  margin-left: 1vw;
+}
