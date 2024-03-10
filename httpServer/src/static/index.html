@@ -17,12 +17,26 @@
     <div id="main-wrapper">
       <div id="content-nav-wrapper">
         <button
+          hx-get="/pages/party"
+          hx-target="#content-switcher"
+        >Party</button>
+        <button
+          class="active"
           hx-get="/pages/cards"
           hx-target="#content-switcher"
         >Cards</button>
+        <button
+          hx-get="/pages/profile"
+          hx-target="#content-switcher"
+        >Profile</button>
       </div>
-      <div id="content-switcher"></div>
+      <div id="content-switcher"
+        hx-trigger="load"
+        hx-get="/pages/cards"
+      ></div>
     </div>
+
+    <script src="js/nav.js"></script>
 
   </body>
 </html>

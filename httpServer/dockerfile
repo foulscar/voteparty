@@ -1,0 +1,22 @@
+# syntax=docker/dockerfile:1
+
+FROM golang:alpine3.19
+
+RUN mkdir /build
+WORKDIR /build
+
+RUN export GO111MODULE=on
+RUN go get github.com/foulscar/voteparty/httpServer/src
+
+RUN cd /build
+RUN git init .
+RUN git remote add -f origin https://github.com/foulscar/voteparty.git
+RUN git config core.sparseCheckout true
+RUN echo "httpServer/src" >> .git/info/sparse-checkout
+RUN git pull origin master
+
+RUN cd /build/httpServer/src && go build -o server *.go
+
+EXPOSE 8080
+
+ENTRYPOINT [ "/build/httpServer/src/server" ]

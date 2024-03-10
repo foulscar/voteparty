@@ -85,7 +85,14 @@ header {
   padding: 0.1vw;
   border: 0.25vw solid black;
   box-shadow:
-    black -0.2rem 0.2rem;
+    black 0 0.2rem;
+} #content-nav-wrapper button + button {
+  margin-left: 0.3vw;
+} #content-nav-wrapper .active {
+  box-shadow: none;
+  filter: brightness(85%);
+  position: relative;
+  top: 0.2rem;
 }
 
 #content-switcher {
