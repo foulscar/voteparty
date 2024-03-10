@@ -1,7 +1,7 @@
 package main
 
 import (
-	L "./pageHandlers"
+	"github.com/foulscar/voteparty/httpServer/pageHandlers"
 	"fmt"
 	"os"
 	"log"
@@ -28,7 +28,7 @@ func handleGetCountdown(w http.ResponseWriter, r *http.Request) {
 func main() {
 	http.Handle("/", http.FileServer(http.Dir("./static")))
 	http.HandleFunc("/getCountdown", handleGetCountdown)
-	http.HandleFunc("/pages/cards", L.HandleCardsPage)
+	http.HandleFunc("/pages/cards", pageHandlers.HandleCardsPage)
 
 	fmt.Fprint(os.Stdout, "Starting Server at Port 8080\n")
 	log.Fatal(os.Stdout, http.ListenAndServe(":8080", nil))
